@@ -410,7 +410,11 @@ def searchUser():
     if userList == []:
         userList == ""
 
-    return render_template("./searchUser.html", userList=userList)  
+    # this is so that the loop works for the carousel on the html page. Sending the length of the userList to the html page as its own variable.
+    total = len(userList)
+
+    return render_template("./searchUser.html", totalMessages=total, messages=userList)
+
 
 @app.route("/userInfo", methods=["GET", "POST"])
 def userInfo():
